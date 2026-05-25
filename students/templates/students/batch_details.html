@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="icon" href="/static/images/icon.png">
+<link
+rel="manifest"
+href="/static/manifest.json">
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Batch Details</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: #f8f6f1;
+            color: #1c1c1c;
+        }
+
+        .header{
+            background: #151515;
+            color: white;
+            padding: 20px;
+        }
+
+        .header h1{
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+
+        .header p{
+            color: #ccc;
+            font-size: 15px;
+        }
+
+        .container{
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section-title{
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .student-card{
+            background: white;
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+
+        .student-top{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .student-photo{
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d43a2f;
+        }
+
+        .student-name{
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .belt{
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .student-details p{
+            margin-bottom: 10px;
+            color: #444;
+            font-size: 15px;
+        }
+
+        .fee-box{
+            background: #f2f2f2;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .empty{
+            text-align: center;
+            margin-top: 100px;
+            color: #777;
+            font-size: 18px;
+        }
+
+        @media(max-width:600px){
+
+            .student-top{
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .student-name{
+                font-size: 20px;
+            }
+
+            .container{
+                padding: 15px;
+            }
+
+            .student-card{
+                padding: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+
+        <h1>
+
+            {{ batch.name }}
+
+        </h1>
+
+        <p>
+
+            {{ batch.timing }}
+
+        </p>
+
+    </div>
+
+    <div class="container">
+
+        <h2 class="section-title">
+
+            Students
+
+        </h2>
+
+        {% for student in students %}
+
+            <div class="student-card">
+
+                <div class="student-top">
+
+                    {% if student.photo %}
+
+                        <img
+                        src="{{ student.photo.url }}"
+                        class="student-photo">
+
+                    {% endif %}
+
+                    <div>
+
+                        <div class="student-name">
+
+                            {{ student.name }}
+
+                        </div>
+
+                        <div class="belt">
+
+                            🥋 {{ student.belt }} Belt
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="student-details">
+
+                    <p>
+
+                        📞 {{ student.phone }}
+
+                    </p>
+
+                    <p>
+
+                        📅 Admission:
+                        {{ student.admission_date }}
+
+                    </p>
+
+                    <div class="fee-box">
+
+                        💰 Fee Ending:
+                        {{ student.fee_end_date }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% empty %}
+
+            <div class="empty">
+
+                No Students Found
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

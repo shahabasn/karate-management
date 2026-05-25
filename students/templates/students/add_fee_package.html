@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <link rel="icon" href="/static/images/icon.png">
+<link
+rel="manifest"
+href="/static/manifest.json">
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Add Fee Package</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: #f8f6f1;
+        }
+
+        .header{
+            background: #151515;
+            color: white;
+            padding: 18px;
+        }
+
+        .header h1{
+            font-size: 24px;
+        }
+
+        .container{
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .form-card{
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-group{
+            margin-bottom: 20px;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input{
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus{
+            border-color: #d43a2f;
+        }
+
+        .save-btn{
+            width: 100%;
+            background: #d43a2f;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .save-btn:hover{
+            background: #b92f26;
+        }
+
+        @media(max-width:480px){
+
+            .container{
+                padding: 15px;
+            }
+
+            .form-card{
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+
+        <h1>
+
+            Add Fee Package
+
+        </h1>
+
+    </div>
+
+    <div class="container">
+
+        <div class="form-card">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label>
+
+                        Package Name
+
+                    </label>
+
+                    <input
+                    type="text"
+                    name="name"
+                    placeholder="Example: 1 Month">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        Days
+
+                    </label>
+
+                    <input
+                    type="number"
+                    name="days"
+                    placeholder="Example: 30">
+
+                </div>
+
+                <button
+                type="submit"
+                class="save-btn">
+
+                    SAVE PACKAGE
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
