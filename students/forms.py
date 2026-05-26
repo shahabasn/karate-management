@@ -2,7 +2,8 @@ from django import forms
 
 from .models import (
     Student,
-    Batch
+    Batch,
+    FeePackage
 )
 
 
@@ -20,5 +21,14 @@ class BatchForm(forms.ModelForm):
     class Meta:
 
         model = Batch
+
+        fields = '__all__'
+
+
+class FeePackageForm(forms.ModelForm):
+
+    class Meta:
+
+        model = FeePackage
 
         fields = '__all__'

@@ -363,9 +363,19 @@ href="/static/manifest.json">
       </svg>
       <h1>Karate <span>Management</span></h1>
     </div>
-    <a href="/logout/" class="logout-btn"
-    onclick="return confirm('Are you sure you want to logout?')">
-    Logout</a>
+   <form
+method="POST"
+action="/logout/"
+onsubmit="return confirm('Logout?')"
+style="display:inline;">
+
+    {% csrf_token %}
+
+    <button type="submit">
+        Logout
+    </button>
+
+  </form>
   </header>
 
   <!-- Search -->
