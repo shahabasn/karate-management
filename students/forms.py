@@ -15,6 +15,22 @@ class StudentForm(forms.ModelForm):
 
         fields = '__all__'
 
+        widgets = {
+
+            'admission_date': forms.DateInput(
+                attrs={
+                    'type': 'date'
+                }
+            ),
+
+            'fee_start_date': forms.DateInput(
+                attrs={
+                    'type': 'date'
+                }
+            ),
+
+        }
+
 
 class BatchForm(forms.ModelForm):
 
